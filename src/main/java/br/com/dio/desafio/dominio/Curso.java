@@ -5,9 +5,23 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class Curso
+public class Curso extends  Conteudo
 {
-    private String titulo;
-    private String descricao;
     private int cargaHora;
+
+    @Override
+    public double calcularXp()
+    {
+        return XP_PADRAO * cargaHora;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Mentoria{" +
+                "titulo='" + getTitulo() + '\'' +
+                ", descricao='" + getDescricao() + '\'' +
+                ", cargaHora=" + cargaHora +
+                '}';
+    }
 }
